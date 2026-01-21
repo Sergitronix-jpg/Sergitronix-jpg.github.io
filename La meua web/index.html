@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somni Game Studios - Ultimate Experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div class="intro-content text-center">
+            <h1 class="display-1 fw-bold tracking-in-expand">SOMNI<span class="dot">.</span></h1>
+            <p class="lead text-uppercase tracking-in-contract">The Future of Gaming is Healthy</p>
+            <button class="btn btn-intro mt-4" onclick="enterSite()">ENTRAR AL SISTEMA</button>
+        </div>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner d-none">
+        <div class="container d-flex justify-content-between align-items-center flex-column flex-md-row">
+            <div class="mb-3 mb-md-0">
+                <i class="bi bi-cookie text-primary fs-4 me-2"></i>
+                <span class="text-light">Utilitzem cookies pròpies i de tercers per millorar la teva experiència. <a href="#" onclick="openPolicyModal()" class="text-info text-decoration-underline">Llegir Política</a>.</span>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-outline-light rounded-pill" onclick="acceptCookies()">TANCAR</button>
+                <button class="btn btn-sm btn-primary-glow" onclick="acceptCookies()">ACCEPTAR TOT</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <div class="video-bg-container">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Background" class="bg-image">
+        <div class="overlay"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showSection('home')">SOMNI<span class="dot">.</span></a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" onclick="showSection('home')">Inici</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('studio')">L'Estudi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('projects')">Jocs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('location')">Ubicació</a></li>
+                    <li class="nav-item"><a class="nav-link btn-contact" href="#" onclick="showSection('contact')">Contacte</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        
+        <section id="home" class="content-section active">
+            <div class="row align-items-center vh-80">
+                <div class="col-lg-8">
+                    <div class="typing-container mb-3">
+                        <span id="typewriter" class="text-primary-gradient fw-bold fs-4"></span><span class="cursor-blink">|</span>
+                    </div>
+                    
+                    <h1 class="display-1 fw-bold glitch-effect">REALITAT <br><span class="text-white">MILLORADA</span></h1>
+                    
+                    <p class="lead text-light opacity-75 mt-3">
+                        Somni Game Studios fusiona la narrativa immersiva amb el benestar personal. 
+                        No creem videojocs per escapar de la realitat, sinó per millorar-la.
+                    </p>
+                    
+                    <div class="stats-row d-flex gap-4 mt-4 mb-4 flex-wrap">
+                        <div class="glass-stat p-3 rounded">
+                            <h3 class="fw-bold text-primary m-0">50K+</h3><small class="text-uppercase text-muted">Usuaris</small>
+                        </div>
+                        <div class="glass-stat p-3 rounded">
+                            <h3 class="fw-bold text-primary m-0">4.8/5</h3><small class="text-uppercase text-muted">Valoració</small>
+                        </div>
+                        <div class="glass-stat p-3 rounded">
+                            <h3 class="fw-bold text-primary m-0">Global</h3><small class="text-uppercase text-muted">Disponible</small>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <button onclick="showSection('projects')" class="btn btn-primary-glow btn-lg me-3"><i class="bi bi-controller"></i> Explorar Jocs</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="studio" class="content-section">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="section-title mb-4">Més enllà del <span class="text-primary-gradient">Codi</span></h2>
+                    <p class="text-light">
+                        Fundat el 2023 a Barcelona, Somni va néixer amb una pregunta: <em>"Podem fer que jugar ens faci més saludables?"</em>.
+                    </p>
+                    <p class="text-light opacity-75">
+                        El nostre equip està format per veterans de la indústria AAA, psicòlegs conductuals i artistes digitals.
+                    </p>
+                    
+                    <div class="skills-container mt-4">
+                        <div class="skill-box mb-3">
+                            <div class="d-flex justify-content-between"><small>Unreal Engine 5 & Nanite</small> <small>98%</small></div>
+                            <div class="progress custom-progress"><div class="progress-bar bg-primary" style="width: 98%"></div></div>
+                        </div>
+                        <div class="skill-box mb-3">
+                            <div class="d-flex justify-content-between"><small>Narrativa Emergent</small> <small>92%</small></div>
+                            <div class="progress custom-progress"><div class="progress-bar bg-info" style="width: 92%"></div></div>
+                        </div>
+                        <div class="skill-box mb-3">
+                            <div class="d-flex justify-content-between"><small>Disseny de So Binaural</small> <small>88%</small></div>
+                            <div class="progress custom-progress"><div class="progress-bar bg-purple" style="width: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="glass-box p-2 tilt-effect mt-4 mt-md-0">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Office Setup" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap">
+                <h2 class="section-title m-0">Els Nostres <span class="text-primary-gradient">Móns</span></h2>
+                
+                <div class="filter-buttons mt-3 mt-md-0">
+                    <button class="btn btn-sm btn-outline-light active" onclick="filterProjects('all')">Tots</button>
+                    <button class="btn btn-sm btn-outline-light" onclick="filterProjects('rpg')">RPG</button>
+                    <button class="btn btn-sm btn-outline-light" onclick="filterProjects('vr')">VR</button>
+                    <button class="btn btn-sm btn-outline-light" onclick="filterProjects('puzzle')">Puzzle</button>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-12 project-item" data-category="rpg">
+                    <div class="game-card featured-game">
+                        <img src="https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Stepland Original">
+                        <div class="card-overlay">
+                            <span class="badge bg-primary mb-2">PROJECTE INSÍGNIA</span>
+                            <h3 class="display-5 fw-bold">STEPLAND</h3>
+                            <p class="fs-5 d-none d-md-block">El primer RPG de fantasia on el comandament són els teus peus. Puja de nivell caminant pel món real.</p>
+                            <button class="btn btn-outline-light mt-2" onclick="openGameModal('stepland')">Veure Fitxa Completa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 project-item" data-category="rpg">
+                    <div class="game-card">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Neon">
+                        <div class="card-overlay">
+                            <span class="badge bg-dark mb-2 border border-light">ACCIÓ / RPG</span>
+                            <h3>NEON SOUL</h3>
+                            <p>Hackeja el sistema en una distopia.</p>
+                            <button class="btn btn-sm btn-primary-glow" onclick="openGameModal('neon')">+ Info</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 project-item" data-category="puzzle">
+                    <div class="game-card">
+                        <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Puzzle">
+                        <div class="card-overlay">
+                            <span class="badge bg-dark mb-2 border border-light">PUZZLE</span>
+                            <h3>GEOMETRY ZEN</h3>
+                            <p>Geometria sagrada i música Lo-Fi.</p>
+                            <button class="btn btn-sm btn-primary-glow" onclick="openGameModal('geometry')">+ Info</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 project-item" data-category="vr">
+                    <div class="game-card">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="VR">
+                        <div class="card-overlay">
+                            <span class="badge bg-dark mb-2 border border-light">VR</span>
+                            <h3>NATURE VR</h3>
+                            <p>Escapa de la ciutat sense moure't.</p>
+                            <button class="btn btn-sm btn-primary-glow" onclick="openGameModal('nature')">+ Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="content-section">
+            <h2 class="section-title text-center">Base d'<span class="text-primary-gradient">Operacions</span></h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="glass-box p-4 h-100">
+                        <h3>Headquarters</h3>
+                        <p class="text-muted">Districte Tecnològic 22@</p>
+                        <hr class="border-light">
+                        <p><i class="bi bi-geo-alt-fill text-primary"></i> Carrer del Somni, 42<br>08018, Barcelona</p>
+                        <p><i class="bi bi-envelope-fill text-primary"></i> hello@somnigames.com</p>
+                        
+                        <div class="mt-4 p-3 bg-dark rounded border border-secondary">
+                            <h6 class="text-muted text-uppercase mb-2">Horari</h6>
+                            <div class="d-flex justify-content-between"><small>Dl - Dv</small> <small class="text-success">09:00 - 18:00</small></div>
+                            <div class="d-flex justify-content-between"><small>Cap de Setmana</small> <small class="text-danger">TANCAT</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="map-container glass-box p-1 h-100 mt-4 mt-md-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.686290886566!2d2.1734034!3d41.3850639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2f260e1a991%3A0x1c0c1f1f1f1f1f1f!2sPla%C3%A7a%20de%20Catalunya!5e0!3m2!1sca!2ses!4v1625680000000!5m2!1sca!2ses" 
+                        width="100%" height="100%" style="border:0; border-radius: 15px; min-height: 400px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="row justify-content-center">
+                <div class="col-md-5 mb-4">
+                    <div class="glass-box p-4 h-100">
+                        <h3 class="mb-4">FAQ</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item bg-transparent border-bottom border-light">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        Busqueu Beta Testers?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted small">
+                                        Sí! Periòdicament obrim convocatòries al nostre Discord.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item bg-transparent border-bottom border-light">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-transparent text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Plataformes?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted small">
+                                        PC (Steam) i Mòbil. Aviat a Consoles.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="glass-box p-5">
+                        <h2 class="mb-4">Contactar Equip</h2>
+                        <div id="success-message" class="alert alert-success d-none">
+                            <i class="bi bi-check-circle"></i> Missatge enviat!
+                        </div>
+                        <form id="contactForm" onsubmit="handleForm(event)">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Identitat (Nom)</label>
+                                    <input type="text" class="form-control custom-input" required placeholder="Ex: Alex...">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Canal (Email)</label>
+                                    <input type="email" class="form-control custom-input" required placeholder="contacte@email.com">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Departament</label>
+                                <select class="form-control custom-input">
+                                    <option>General</option>
+                                    <option>Suport Tècnic</option>
+                                    <option>Premsa</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Missatge</label>
+                                <textarea class="form-control custom-input" rows="4" required placeholder="Escriu aquí..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-glow w-100">
+                                <i class="bi bi-send"></i> Enviar Dades
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="fixed-bottom text-center py-2 glass-footer">
+        <small class="text-white-50">© 2025 Somni Game Studios. <a href="#" onclick="openPolicyModal()" class="text-white-50">Política de Cookies</a></small>
+        <div class="social-icons d-inline-block ms-3">
+            <a href="#" class="text-white mx-2 icon-hover"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white mx-2 icon-hover"><i class="bi bi-twitter"></i></a>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="gameModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-box" style="border: 1px solid var(--cyan);">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title fw-bold text-white" id="modalTitle">TITOL</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img id="modalImg" src="" class="w-100" style="height: 250px; object-fit: cover;">
+                    <div class="p-4">
+                        <p id="modalDesc" class="text-light opacity-75">Descripció...</p>
+                        <hr class="border-secondary">
+                        <div class="row text-center text-primary">
+                            <div class="col-4">
+                                <i class="bi bi-calendar-event"></i><br>
+                                <small id="modalDate" class="text-white">Date</small>
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-controller"></i><br>
+                                <small id="modalGenre" class="text-white">Genre</small>
+                            </div>
+                            <div class="col-4">
+                                <i class="bi bi-display"></i><br>
+                                <small id="modalPlat" class="text-white">Plat</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top border-secondary justify-content-center">
+                    <button type="button" class="btn btn-outline-light rounded-pill" data-bs-dismiss="modal">Tancar</button>
+                    <button type="button" class="btn btn-primary-glow">Afegir a Wishlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="policyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-box" style="border: 1px solid var(--primary);">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title fw-bold text-white"><i class="bi bi-shield-lock"></i> Política de Cookies i Privadesa</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-light" style="max-height: 60vh; overflow-y: auto;">
+                    <h6>1. Ús de Cookies</h6>
+                    <p class="small opacity-75">Somni Game Studios utilitza cookies tècniques essencials per al funcionament de la web (com recordar la teva acceptació d'aquest avís) i cookies analítiques anònimes per entendre com els usuaris interactuen amb els nostres jocs.</p>
+                    
+                    <h6>2. Protecció de Dades (GDPR)</h6>
+                    <p class="small opacity-75">Les dades enviades a través del formulari de contacte es tractaran exclusivament per respondre a la teva sol·licitud. No compartim dades amb tercers sense consentiment explícit.</p>
+                    
+                    <h6>3. Drets de l'Usuari</h6>
+                    <p class="small opacity-75">Tens dret a accedir, rectificar i suprimir les teves dades en qualsevol moment escrivint a privacy@somnigames.com.</p>
+                </div>
+                <div class="modal-footer border-top border-secondary">
+                    <button type="button" class="btn btn-primary-glow w-100" data-bs-dismiss="modal">Entesos, tancar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
