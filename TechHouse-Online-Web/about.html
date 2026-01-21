@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Nosotros - TechHouse Online</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --primary: #00B0F0; --secondary: #101929; --light: #F2F8FE; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #666; }
+        h1, h2, h3, h4, h5 { font-family: 'Saira', sans-serif; font-weight: 700; color: var(--secondary); }
+        
+        .navbar { background: var(--secondary) !important; padding: 15px 0; }
+        .nav-link { color: #fff !important; padding: 10px 15px !important; }
+        .nav-link:hover { color: var(--primary) !important; }
+
+        .page-header {
+            background: linear-gradient(rgba(16, 25, 41, .8), rgba(16, 25, 41, .8)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-position: center; background-size: cover; padding: 6rem 0; text-align: center; margin-bottom: 3rem;
+        }
+
+        /* Tarjeta ODS con Imagen */
+        .ods-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            height: 100%;
+            transition: .3s;
+        }
+        .ods-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        .ods-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .ods-body { padding: 20px; }
+
+        .footer { background: var(--secondary); color: #fff; padding-top: 50px; margin-top: 50px; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><h2>TechHouse<span style="color:var(--primary)">Online</span></h2></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link active">Nosotros</a>
+                    <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    <a href="team.html" class="nav-item nav-link">Equipo</a>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-white mb-3">Sobre Nosotros</h1>
+    </div>
+
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h5 class="text-primary text-uppercase">Nuestra Historia</h5>
+                <h1 class="mb-4">Más que una tienda de informática</h1>
+                <p class="mb-4">TechHouse Online fue fundada por Sergio Arguiñena y Eric Carboneras con una visión clara: democratizar el acceso a la tecnología de alto rendimiento, pero haciéndolo de forma responsable.</p>
+                <p class="mb-4">Nos especializamos en comercio electrónico de componentes y periféricos, ofreciendo una experiencia completa que va desde la venta hasta el montaje y el soporte post-venta.</p>
+                <div class="d-flex align-items-center mt-4">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                        <i class="fa fa-award text-white fs-4"></i>
+                    </div>
+                    <div class="ps-3">
+                        <h5 class="mb-1">Calidad Garantizada</h5>
+                        <small>Solo primeras marcas</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-75 shadow" src="https://images.unsplash.com/photo-1531297461136-82lw9z0u7e3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" style="margin-top: 25%;">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-100 shadow" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-light py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5">
+                <h5 class="text-primary text-uppercase">Sostenibilidad</h5>
+                <h1 class="mb-4">Nuestro Compromiso (ODS)</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="ods-card">
+                        <img class="ods-img" src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="ODS 12">
+                        <div class="ods-body text-center">
+                            <h5>ODS 12: Consumo</h5>
+                            <p class="small text-muted">Embalaje 100% reciclable y componentes eficientes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="ods-card">
+                        <img class="ods-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="ODS 9">
+                        <div class="ods-body text-center">
+                            <h5>ODS 9: Innovación</h5>
+                            <p class="small text-muted">Ecommerce optimizado y procesos digitales sin papel.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="ods-card">
+                        <img class="ods-img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="ODS 8">
+                        <div class="ods-body text-center">
+                            <h5>ODS 8: Trabajo</h5>
+                            <p class="small text-muted">Empleo de calidad y formación técnica continua.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="ods-card">
+                        <img class="ods-img" src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="ODS 13">
+                        <div class="ods-body text-center">
+                            <h5>ODS 13: Clima</h5>
+                            <p class="small text-muted">Logística verde para reducir la huella de carbono.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer text-center py-4">
+        <p class="mb-0 text-white-50">&copy; TechHouse Online.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Inicio - TechHouse Online</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00B0F0;
+            --secondary: #101929;
+            --light: #F2F8FE;
+            --dark: #111111;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: #666;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Saira', sans-serif;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--secondary) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand h2 {
+            color: #fff;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            padding: 10px 15px !important;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary) !important;
+        }
+
+        /* Carousel Hero */
+        .carousel-item {
+            height: 90vh;
+            min-height: 500px;
+            background: #000;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .carousel-caption {
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Botones */
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 15px 30px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: .3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-outline-light {
+            padding: 15px 30px;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        /* Tarjetas de Resumen */
+        .feature-item {
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            text-align: center;
+            transition: .5s;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-item:hover {
+            background: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 0 45px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item:hover h5,
+        .feature-item:hover p,
+        .feature-item:hover i {
+            color: #fff !important;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: #fff;
+            margin-top: 50px;
+            padding-top: 50px;
+        }
+        
+        .footer a {
+            color: #bbb;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <h2>TechHouse<span style="color:var(--primary)">Online</span></h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    <a href="team.html" class="nav-item nav-link">Equipo</a>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="PC Gaming Setup">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 text-center">
+                                    <h4 class="text-primary text-uppercase mb-3 animated slideInDown">Bienvenido a TechHouse</h4>
+                                    <h1 class="display-1 text-white mb-4 animated slideInDown">Potencia y Calidad en cada PC</h1>
+                                    <p class="fs-5 text-white mb-5">Montaje profesional de ordenadores, componentes de alta gama y compromiso total con la sostenibilidad (ODS).</p>
+                                    <a href="service.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Ver Catálogo</a>
+                                    <a href="contact.html" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contacto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="https://images.unsplash.com/photo-1631557053538-4e892c57a99a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Impresión 3D">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 text-center">
+                                    <h4 class="text-primary text-uppercase mb-3 animated slideInDown">Oferta Exclusiva</h4>
+                                    <h1 class="display-1 text-white mb-4 animated slideInDown">Regalo Soporte 3D</h1>
+                                    <p class="fs-5 text-white mb-5">Con cada pedido, recibe gratis un soporte de móvil exclusivo impreso en 3D. Tecnología en cada detalle.</p>
+                                    <a href="service.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Comprar Ahora</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="feature-item">
+                        <div class="mb-4">
+                            <i class="fa fa-gamepad fa-4x text-primary"></i>
+                        </div>
+                        <h5 class="mb-3">Gaming de Alto Nivel</h5>
+                        <p class="mb-0">Equipos configurados para el máximo rendimiento en juegos competitivos y AAA.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="feature-item">
+                        <div class="mb-4">
+                            <i class="fa fa-leaf fa-4x text-primary"></i>
+                        </div>
+                        <h5 class="mb-3">Sostenibilidad ODS</h5>
+                        <p class="mb-0">Comprometidos con el medio ambiente. Embalajes reciclables y logística eficiente.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="feature-item">
+                        <div class="mb-4">
+                            <i class="fa fa-headset fa-4x text-primary"></i>
+                        </div>
+                        <h5 class="mb-3">Soporte Experto</h5>
+                        <p class="mb-0">Sergio y Eric te asesoran personalmente. Resolvemos tus dudas técnicas al instante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer wow fadeIn">
+        <div class="container py-5">
+            <div class="row g-5">

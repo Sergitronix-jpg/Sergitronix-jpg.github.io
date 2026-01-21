@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Servicios - TechHouse Online</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --primary: #00B0F0; --secondary: #101929; --light: #F2F8FE; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #666; }
+        h1, h2, h3, h4, h5 { font-family: 'Saira', sans-serif; font-weight: 700; color: var(--secondary); }
+        
+        .navbar { background: var(--secondary) !important; padding: 15px 0; }
+        .nav-link { color: #fff !important; font-weight: 500; padding: 10px 15px !important; }
+        .nav-link:hover, .nav-link.active { color: var(--primary) !important; }
+
+        .page-header {
+            background: linear-gradient(rgba(16, 25, 41, .8), rgba(16, 25, 41, .8)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-position: center center;
+            background-size: cover;
+            padding: 6rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-item {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+            transition: .4s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer { background: var(--secondary); color: #fff; padding-top: 50px; margin-top: 50px; }
+        .footer a { color: #bbb; text-decoration: none; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><h2>TechHouse<span style="color:var(--primary)">Online</span></h2></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="service.html" class="nav-item nav-link active">Servicios</a>
+                    <a href="team.html" class="nav-item nav-link">Equipo</a>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-white mb-3">Nuestros Servicios</h1>
+        <p class="text-white fs-5">Soluciones a medida para cada usuario</p>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h5 class="text-primary text-uppercase">Qué ofrecemos</h5>
+            <h1 class="mb-4">Catálogo de Servicios</h1>
+        </div>
+        <div class="row g-4">
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hardware">
+                    <div class="service-content">
+                        <h4 class="mb-3">Venta de Componentes</h4>
+                        <p class="mb-4">Tarjetas gráficas, procesadores y placas base de última generación. Trabajamos con marcas líderes como Asus, MSI y Corsair.</p>
+                        <div class="mt-auto">
+                            <span class="d-block fw-bold text-primary mb-3">Desde 20€</span>
+                            <a href="#" class="btn btn-primary w-100">Ver Catálogo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Montaje PC">
+                    <div class="service-content">
+                        <h4 class="mb-3">Montaje de PCs</h4>
+                        <p class="mb-4">Configuraciones personalizadas para Gaming, Edición o Oficina. Incluye gestión de cables, instalación de SO y pruebas de estrés.</p>
+                        <div class="mt-auto">
+                            <span class="d-block fw-bold text-primary mb-3">Montaje: 50€</span>
+                            <a href="contact.html" class="btn btn-primary w-100">Pedir Presupuesto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <img class="service-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Soporte">
+                    <div class="service-content">
+                        <h4 class="mb-3">Asesoramiento Técnico</h4>
+                        <p class="mb-4">Chat directo con nuestros expertos (Eric y Sergio). Resolvemos dudas de compatibilidad y te ayudamos a optimizar tu dinero.</p>
+                        <div class="mt-auto">
+                            <span class="d-block fw-bold text-primary mb-3">Gratis con tu compra</span>
+                            <a href="contact.html" class="btn btn-primary w-100">Contactar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Tarifas de Taller</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered text-center align-middle">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th class="py-3">Servicio</th>
+                        <th class="py-3">Descripción</th>
+                        <th class="py-3">Precio Estimado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Montaje Estándar</td>
+                        <td>Montaje de componentes + Gestión de cables básica</td>
+                        <td>45€</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Montaje Premium</td>
+                        <td>Montaje + Instalación Windows + Drivers + Test Estrés</td>
+                        <td>70€</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Mantenimiento</td>
+                        <td>Limpieza profunda de polvo + Cambio pasta térmica</td>
+                        <td>30€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container-fluid footer text-center py-4">
+        <p class="mb-0 text-white-50">© TechHouse Online.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

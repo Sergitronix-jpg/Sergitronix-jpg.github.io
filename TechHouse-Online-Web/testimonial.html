@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Testimonios - TechHouse Online</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --primary: #00B0F0; --secondary: #101929; --light: #F2F8FE; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #666; }
+        h1, h2, h3, h4, h5 { font-family: 'Saira', sans-serif; font-weight: 700; color: var(--secondary); }
+        
+        /* Navbar */
+        .navbar { background: var(--secondary) !important; padding: 15px 0; }
+        .nav-link { color: #fff !important; padding: 10px 15px !important; }
+        .nav-link:hover { color: var(--primary) !important; }
+
+        /* Cabecera */
+        .page-header {
+            background: linear-gradient(rgba(16, 25, 41, .8), rgba(16, 25, 41, .8)), url('https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-position: center; background-size: cover; padding: 6rem 0; text-align: center; margin-bottom: 3rem;
+        }
+
+        /* Tarjeta de Testimonio */
+        .testimonial-item {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: .4s;
+            height: 100%; /* Altura igualada */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-item:hover {
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .footer { background: var(--secondary); color: #fff; padding-top: 50px; margin-top: 50px; }
+        .footer a { color: #bbb; text-decoration: none; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><h2>TechHouse<span style="color:var(--primary)">Online</span></h2></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    <a href="team.html" class="nav-item nav-link">Equipo</a>
+                    <a href="testimonial.html" class="nav-item nav-link active">Testimonios</a>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-white mb-3">Testimonios</h1>
+        <p class="text-white fs-5">La opinión de nuestros clientes</p>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h5 class="text-primary text-uppercase">Nuestros Clientes</h5>
+            <h1 class="mb-4">Lo que dicen de nosotros</h1>
+            <p class="mb-0">Trabajamos para Gamers, PYMES y Estudiantes. Aquí tienes algunas de sus experiencias reales.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="testimonial-img" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cliente">
+                        <div class="ms-3">
+                            <h5 class="mb-1 text-secondary">Marc Rodríguez</h5>
+                            <span class="text-primary small text-uppercase">Gamer</span>
+                        </div>
+                    </div>
+                    <p class="mb-0 fst-italic">"El montaje fue impecable. Pedí un PC con refrigeración líquida y el cableado está perfecto. Además, el soporte de móvil 3D que regalan es un detallazo súper útil para mi escritorio."</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="testimonial-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cliente">
+                        <div class="ms-3">
+                            <h5 class="mb-1 text-secondary">Laura Sánchez</h5>
+                            <span class="text-primary small text-uppercase">Gerente PYME</span>
+                        </div>
+                    </div>
+                    <p class="mb-0 fst-italic">"Necesitábamos renovar 5 ordenadores para la oficina de diseño. TechHouse nos asesoró para no gastar de más y el envío fue rapidísimo. La factura y el soporte técnico son de 10."</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="testimonial-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cliente">
+                        <div class="ms-3">
+                            <h5 class="mb-1 text-secondary">David García</h5>
+                            <span class="text-primary small text-uppercase">Estudiante</span>
+                        </div>
+                    </div>
+                    <p class="mb-0 fst-italic">"Tenía un presupuesto ajustado para mi PC de la universidad y gaming ligero. Eric me ayudó por el chat a elegir los componentes exactos. Muy contento con el rendimiento."</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="testimonial-img" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cliente">
+                        <div class="ms-3">
+                            <h5 class="mb-1 text-secondary">Javier M.</h5>
+                            <span class="text-primary small text-uppercase">Programador</span>
+                        </div>
+                    </div>
+                    <p class="mb-0 fst-italic">"Valoro mucho la sostenibilidad y me encantó ver que el embalaje era totalmente reciclable. El equipo funciona como un tiro para compilar código."</p>
+                </div>
+            </div>
+
+             <div class="col-lg-4 col-md-6">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="testimonial-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cliente">
+                        <div class="ms-3">
+                            <h5 class="mb-1 text-secondary">Sara L.</h5>
+                            <span class="text-primary small text-uppercase">Diseñadora 3D</span>
+                        </div>
+                    </div>
+                    <p class="mb-0 fst-italic">"El asesoramiento de Sergio fue clave. No sabía qué tarjeta gráfica necesitaba para renderizar y me ahorraron mucho dinero recomendándome la adecuada."</p>
+                </div>
+            </div>
+
+             <div class="col-lg-4 col-md-6">
+                <div class="testimonial-item">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="testimonial-img" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Cliente">
+                        <div class="ms-3">
+                            <h5 class="mb-1 text-secondary">Alex T.</h5>
+                            <span class="text-primary small text-uppercase">Streamer</span>
+                        </div>
+                    </div>
+                    <p class="mb-0 fst-italic">"Todo perfecto. El PC llegó listo para enchufar y empezar a streamear. 100% recomendables."</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid footer wow fadeIn">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">TechHouse Online</h3>
+                    <p>Tu tienda de confianza. Especialistas en hardware, montaje y sostenibilidad.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Contacto</h3>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Barcelona, España</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+34 93 123 45 67</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@techhouse.online</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="text-white mb-4">Enlaces</h3>
+                    <a class="btn btn-link" href="about.html">Nosotros</a>
+                    <a class="btn btn-link" href="service.html">Servicios</a>
+                    <a class="btn btn-link" href="contact.html">Contacto</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright text-center py-4 border-top border-secondary">
+                <p class="mb-0">© TechHouse Online. Diseñado por Sergio Arguiñena & Eric Carboneras.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
