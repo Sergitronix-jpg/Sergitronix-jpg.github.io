@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* --- VARIABLES (ESTIL COMPACTE) --- */
+        /* --- VARIABLES --- */
         :root {
             --primary: #2563eb;
             --primary-dark: #1e40af;
@@ -98,7 +98,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
         }
 
-        /* --- MAIN --- */
+        /* --- CONTINGUT --- */
         main { 
             flex: 1; 
             max-width: 1150px; 
@@ -118,7 +118,7 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* --- INICI / CV --- */
+        /* --- PERFIL / SIDEBAR --- */
         .cv-container { display: grid; grid-template-columns: 300px 1fr; gap: 2rem; }
         
         .cv-sidebar { 
@@ -132,8 +132,8 @@
 
         .profile-img-wrapper {
             position: relative;
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             margin: 0 auto 1.5rem;
         }
 
@@ -146,7 +146,14 @@
             border: 4px solid white; 
             box-shadow: 0 0 0 1px var(--border);
         }
-        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* AJUSTE IMAGEN: Mantiene la proporción y centra la cara */
+        .profile-img img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: center 20%; /* Enfoca ligeramente arriba del centro */
+        }
         
         .contact-mini { 
             background: #f1f5f9; 
@@ -199,7 +206,7 @@
             color: var(--text-main);
         }
 
-        /* --- COMPONENTS GENERALS BLOCS --- */
+        /* --- COMPONENTS GENERALS --- */
         .detailed-card { 
             background: var(--surface); 
             padding: 3rem; 
@@ -240,7 +247,7 @@
         .info-item ul { padding-left: 1.2rem; margin-top: 0.5rem; }
         .info-item li { margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted); }
 
-        /* --- BLOC B ESTILS --- */
+        /* --- BLOC B --- */
         .market-analysis { margin-top: 2rem; }
         .job-card-premium { 
             display: grid; 
@@ -279,7 +286,7 @@
         .summary-dashboard h3 { color: var(--primary-light); margin-bottom: 1.5rem; font-size: 1.1rem; }
         .summary-dashboard li { margin-bottom: 10px; font-size: 0.9rem; color: #cbd5e1; }
 
-        /* --- BLOC C: TIMELINE --- */
+        /* --- BLOC C --- */
         .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 2rem 0; }
         .timeline::before { 
             content: ''; position: absolute; left: 29px; top: 0; bottom: 0; width: 3px; background: #e2e8f0; 
@@ -307,6 +314,118 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; 
         }
 
+        /* --- COOKIES STYLES --- */
+        #cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(200px); /* Ocult per defecte */
+            width: 90%;
+            max-width: 800px;
+            background: #1e293b;
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #cookie-banner.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        #cookie-banner p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #cbd5e1;
+        }
+
+        .cookie-btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-cookie-accept {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-cookie-accept:hover { background: var(--primary-light); color: var(--primary-dark); }
+
+        .btn-cookie-policy {
+            background: transparent;
+            color: white;
+            border: 1px solid #475569;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .btn-cookie-policy:hover { border-color: white; }
+
+        /* Modal Política de Cookies */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-content h2 { margin-bottom: 1rem; color: var(--primary-dark); }
+        .modal-content h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .modal-content p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; text-align: justify; }
+
+        /* FOOTER LINK */
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .footer-link:hover { text-decoration: underline; }
+
         footer { 
             padding: 2rem; background: var(--surface); border-top: 1px solid var(--border); 
             text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: auto;
@@ -316,6 +435,8 @@
             .cv-container, .job-card-premium, .summary-dashboard { grid-template-columns: 1fr; } 
             .timeline::before { left: 29px; } 
             .nav-links span { display: none; }
+            
+            #cookie-banner { flex-direction: column; text-align: center; width: 95%; bottom: 10px; }
         }
     </style>
 </head>
@@ -339,19 +460,24 @@
         <section id="inici" class="content-section active">
             <div class="cv-container">
                 <aside class="cv-sidebar">
+                    
                     <div class="profile-img-wrapper">
                         <div class="profile-img">
-                            <img src="https://via.placeholder.com/300" alt="Sergio Arguiñena">
+                            <img src="https://i.ibb.co/CK4KcF9H/IMG-6088.jpg" alt="Sergio Arguiñena">
                         </div>
                     </div>
+                    
                     <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 800;">Sergio Arguiñena</h2>
                     <p style="color: var(--primary); font-weight: 700; font-size: 0.95rem;">Estudiant Tècnic SMX</p>
                     <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border);">
                     
                     <div class="contact-mini">
-                        <p><i data-lucide="mail" size="14"></i> sergio.arguinena@iaballester.cat</p>
+                        <p><i data-lucide="mail" size="14"></i> sergio261106@gmail.com</p>
+
                         <p><i data-lucide="phone" size="14"></i> +34 640 054 235</p>
+
                         <p><i data-lucide="map-pin" size="14"></i> Cambrils, Tarragona, Espanya</p>
+
                         <p><i data-lucide="linkedin" size="14"></i> linkedin.com/in/sergio</p>
                     </div>
 
@@ -609,9 +735,38 @@
         </section>
     </main>
 
+    <div id="cookie-banner">
+        <p>Utilitzem cookies pròpies per millorar la teva experiència. Si continues navegant, considerem que acceptes el seu ús.</p>
+        <div class="cookie-btn-group">
+            <button class="btn-cookie-policy" onclick="openCookieModal()">Llegir Política</button>
+            <button class="btn-cookie-accept" onclick="acceptCookies()">D'acord</button>
+        </div>
+    </div>
+
+    <div id="cookie-policy-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeCookieModal()"><i data-lucide="x"></i></button>
+            <h2>Política de Cookies</h2>
+            <hr style="margin: 1rem 0; border: 0; border-top: 1px solid var(--border);">
+            
+            <h3>1. Què són les cookies?</h3>
+            <p>Una cookie és un fitxer que es descarrega al teu ordinador en accedir a determinades pàgines web. Les cookies permeten a una pàgina web, entre altres coses, emmagatzemar i recuperar informació sobre els hàbits de navegació d'un usuari o del seu equip.</p>
+            
+            <h3>2. Quins tipus de cookies utilitzem?</h3>
+            <p>Aquest lloc web (Portafoli Professional) utilitza únicament <strong>cookies tècniques</strong>. Són aquelles que permeten a l'usuari la navegació a través de la pàgina web i la utilització de les diferents opcions o serveis que en ella existeixin.</p>
+            <p>No utilitzem cookies de tercers ni de publicitat o rastreig (analytics).</p>
+
+            <h3>3. Gestió de cookies</h3>
+            <p>Pots permetre, bloquejar o eliminar les cookies instal·lades en el teu equip mitjançant la configuració de les opcions del navegador instal·lat al teu ordinador (Chrome, Firefox, Safari, Edge).</p>
+        </div>
+    </div>
+
     <footer>
-        <p><strong>© 2024 Sergio Arguiñena Garcia</strong></p>
+        <p><strong>© 2026 Sergio Arguiñena Garcia</strong></p>
         <p style="margin-top: 8px; opacity: 0.7;">Projecte d'Orientació Professional (IPO) • CFGM SMX</p>
+        <div style="margin-top: 1rem;">
+            <a onclick="openCookieModal()" class="footer-link">Política de Cookies</a>
+        </div>
     </footer>
 
     <script>
@@ -627,7 +782,41 @@
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        /* --- COOKIES LOGIC --- */
+        // Comprovar si ja s'han acceptat en carregar
+        window.addEventListener('load', () => {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').classList.add('show');
+                }, 1000); // Petit retard per efecte visual
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').classList.remove('show');
+        }
+
+        function openCookieModal() {
+            const modal = document.getElementById('cookie-policy-modal');
+            modal.classList.add('open');
+            // Re-renderitzar icones dins del modal si cal
+            lucide.createIcons();
+        }
+
+        function closeCookieModal() {
+            document.getElementById('cookie-policy-modal').classList.remove('open');
+        }
+
+        // Tancar modal si es clica fora
+        document.getElementById('cookie-policy-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCookieModal();
+            }
+        });
+
         lucide.createIcons();
     </script>
 </body>
-</html>     
+</html>
