@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafoli Professional IT | Sergio Arguiñena Garcia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- VARIABLES DE DISSENY (ESTIL COMPACTE) --- */
+        :root {
+            --primary: #2563eb;       /* Blau principal */
+            --primary-dark: #1e40af;  /* Blau fosc per hovers */
+            --primary-light: #dbeafe; /* Fons suaus */
+            --accent: #0ea5e9;        /* Detalls brillants */
+            --background: #f8fafc;    /* Fons de la pàgina */
+            --surface: #ffffff;       /* Fons de les targetes */
+            --text-main: #0f172a;     /* Text principal */
+            --text-muted: #475569;    /* Text secundari (més fosc que abans per llegibilitat) */
+            --border: #cbd5e1;        /* Voravius subtils */
+            
+            /* Mides reduïdes per evitar scroll excessiu */
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* --- RESET I BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            /* Mida de lletra continguda per encabir molt text */
+            font-size: 0.92rem; 
+            line-height: 1.6; /* Interlineat còmode per llegir paràgrafs llargs */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVEGACIÓ SUPERIOR (STICKY) --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0.8rem 0;
+        }
+
+        .nav-content {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo { 
+            font-weight: 800; 
+            font-size: 1.2rem; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--primary); }
+
+        .nav-links { 
+            display: flex; 
+            gap: 0.5rem; 
+            background: #f1f5f9; 
+            padding: 4px; 
+            border-radius: 10px; 
+            border: 1px solid var(--border);
+        }
+
+        .nav-links button {
+            background: transparent; 
+            border: none; 
+            padding: 8px 16px; 
+            border-radius: 8px;
+            font-weight: 700; 
+            font-size: 0.85rem; 
+            color: var(--text-muted); 
+            cursor: pointer; 
+            transition: all 0.2s ease;
+        }
+
+        .nav-links button:hover { color: var(--primary); }
+        .nav-links button.active { 
+            background: var(--surface); 
+            color: var(--primary); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+        }
+
+        /* --- CONTENIDOR PRINCIPAL --- */
+        main { 
+            flex: 1; 
+            max-width: 1150px; 
+            margin: 0 auto; 
+            width: 100%; 
+            padding: 2rem 1.5rem; 
+        }
+
+        .content-section { 
+            display: none; 
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .content-section.active { display: block; }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* --- ESTILS PÀGINA D'INICI (CURRÍCULUM) --- */
+        .cv-container { 
+            display: grid; 
+            grid-template-columns: 300px 1fr; 
+            gap: 2rem; 
+        }
+        
+        .cv-sidebar { 
+            background: var(--surface); 
+            padding: 2rem; 
+            border-radius: var(--radius-lg); 
+            border: 1px solid var(--border); 
+            box-shadow: var(--shadow);
+            height: fit-content; 
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .profile-img { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            background: var(--primary-light); 
+            overflow: hidden; 
+            border: 4px solid white; 
+            box-shadow: 0 0 0 1px var(--border);
+        }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .contact-mini { 
+            background: #f1f5f9; 
+            padding: 1.2rem; 
+            border-radius: 12px; 
+            border: 1px solid var(--border); 
+            text-align: left; 
+            margin-top: 1.5rem; 
+            font-size: 0.85rem; 
+        }
+        .contact-mini p { 
+            margin-bottom: 8px; 
+            display: flex; 
+            gap: 10px; 
+            align-items: center; 
+            word-break: break-all;
+        }
+
+        .cv-main-info { 
+            background: var(--surface); 
+            padding: 3rem; 
+            border-radius: var(--radius-lg); 
+            border: 1px solid var(--border); 
+            box-shadow: var(--shadow);
+        }
+
+        .section-header { 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.2px; 
+            color: var(--primary); 
+            font-weight: 700; 
+            margin-bottom: 1rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+            width: fit-content;
+        }
+        
+        .cv-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 1rem 0; }
+        .tag { 
+            background: #f8fafc; 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            border: 1px solid var(--border); 
+            color: var(--text-main);
+        }
+
+        /* --- ESTILS GENERALS PER ALS BLOCS A, B i C --- */
+        .detailed-card { 
+            background: var(--surface); 
+            padding: 3rem; 
+            border-radius: var(--radius-lg); 
+            border: 1px solid var(--border); 
+            box-shadow: var(--shadow);
+        }
+        
+        /* Intro Box amb molt text */
+        .intro-text-box { 
+            font-size: 1rem; 
+            background: linear-gradient(to right, #f8fafc, #ffffff); 
+            padding: 2rem; 
+            border-radius: var(--radius-md); 
+            border-left: 6px solid var(--primary); 
+            margin-bottom: 2.5rem; 
+            color: var(--text-main);
+        }
+
+        /* Graella d'informació detallada */
+        .info-grid-detailed { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+        }
+        .info-item { 
+            padding: 2rem; 
+            background: #f8fafc; 
+            border-radius: var(--radius-md); 
+            border: 1px solid var(--border); 
+            transition: 0.3s; 
+        }
+        .info-item:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--primary); 
+            background: var(--surface); 
+            box-shadow: var(--shadow);
+        }
+        .info-item h3 { font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-main); }
+        .info-item ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+        .info-item li { margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- BLOC B: MERCAT LABORAL --- */
+        .market-analysis { margin-top: 2rem; }
+        .job-card-premium { 
+            display: grid; 
+            grid-template-columns: 60px 1fr auto; 
+            align-items: start; 
+            gap: 1.5rem; 
+            padding: 1.8rem; 
+            background: var(--surface); 
+            border-radius: var(--radius-md); 
+            border: 1px solid var(--border); 
+            margin-bottom: 1.5rem; 
+            transition: 0.2s; 
+        }
+        .job-card-premium:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .job-card-premium h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--primary-dark); }
+        .tag-status { 
+            font-size: 0.75rem; 
+            background: var(--primary-light); 
+            color: var(--primary-dark); 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            white-space: nowrap;
+        }
+
+        .summary-dashboard {
+            margin-top: 3rem;
+            background: #1e293b;
+            color: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .summary-dashboard h3 { color: var(--primary-light); margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .summary-dashboard li { margin-bottom: 10px; font-size: 0.9rem; color: #cbd5e1; }
+
+        /* --- BLOC C: ITINERARI FORMATIU (Timeline Vertical) --- */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 2rem 0; }
+        .timeline::before { 
+            content: ''; 
+            position: absolute; 
+            left: 29px; 
+            top: 0; 
+            bottom: 0; 
+            width: 3px; 
+            background: #e2e8f0; 
+        }
+        
+        .timeline-item { position: relative; padding-left: 80px; margin-bottom: 3rem; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        
+        .timeline-icon { 
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            width: 60px; 
+            height: 60px; 
+            background: var(--surface); 
+            border: 3px solid var(--primary); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: var(--primary); 
+            z-index: 2; 
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content { 
+            background: #f8fafc; 
+            padding: 2rem; 
+            border-radius: var(--radius-md); 
+            border: 1px solid var(--border); 
+            transition: 0.3s;
+        }
+        .timeline-content:hover { background: #ffffff; border-color: var(--primary); }
+
+        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--text-main); font-weight: 700; }
+        .timeline-content .date { 
+            font-size: 0.8rem; 
+            color: var(--primary); 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-bottom: 12px; 
+            display: block; 
+        }
+
+        footer { 
+            padding: 2rem; 
+            background: var(--surface);
+            border-top: 1px solid var(--border); 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: var(--text-muted); 
+            margin-top: auto;
+        }
+
+        @media (max-width: 850px) { 
+            .cv-container, .job-card-premium, .summary-dashboard { grid-template-columns: 1fr; } 
+            .timeline::before { left: 29px; } 
+            .nav-links span { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo" onclick="showSection('inici')">
+                <i data-lucide="layout-grid"></i> Sergio<span>Arguiñena</span>
+            </div>
+            <div class="nav-links">
+                <button onclick="showSection('inici')" id="btn-inici" class="active">Pàgina Inici</button>
+                <button onclick="showSection('bloc-a')" id="btn-bloc-a">Bloc A: Perfil</button>
+                <button onclick="showSection('bloc-b')" id="btn-bloc-b">Bloc B: Mercat</button>
+                <button onclick="showSection('bloc-c')" id="btn-bloc-c">Bloc C: Itinerari</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="inici" class="content-section active">
+            <div class="cv-container">
+                <aside class="cv-sidebar">
+                    <div class="profile-img-wrapper">
+                        <div class="profile-img">
+                            <img src="https://via.placeholder.com/300" alt="Sergio Arguiñena">
+                        </div>
+                    </div>
+                    <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 800;">Sergio Arguiñena</h2>
+                    <p style="color: var(--primary); font-weight: 700; font-size: 0.95rem;">Estudiant Tècnic SMX</p>
+                    <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border);">
+                    
+                    <div class="contact-mini">
+                        <p><i data-lucide="mail" size="14"></i> s.arguinena@exemple.com</p>
+                        <p><i data-lucide="phone" size="14"></i> +34 600 000 000</p>
+                        <p><i data-lucide="map-pin" size="14"></i> Barcelona, Espanya</p>
+                        <p><i data-lucide="linkedin" size="14"></i> linkedin.com/in/sergio</p>
+                    </div>
+                </aside>
+
+                <div class="cv-main-info">
+                    <div style="margin-bottom: 2.5rem;">
+                        <div class="section-header"><i data-lucide="user"></i> Presentació Professional</div>
+                        <p style="text-align: justify;">
+                            Benvinguts al meu portafoli professional digital. Sóc actualment un estudiant apassionat del Cicle Formatiu de Grau Mitjà en <strong>Sistemes Microinformàtics i Xarxes (SMX)</strong>. Des de ben petit he tingut un interès innat per entendre com funcionen les màquines per dins, cosa que m'ha portat a especialitzar-me en el maquinari (hardware) i el manteniment d'infraestructures.
+                            <br><br>
+                            Em considero una persona <strong>metòdica, organitzada i amb una gran capacitat d'autodidactisme</strong>. En un sector tan canviant com la informàtica, crec que la curiositat és el motor principal del creixement. El meu objectiu a curt termini és consolidar els meus coneixements tècnics mitjançant les pràctiques en empresa (FCT) i, posteriorment, continuar la meva formació superior per esdevenir un Administrador de Sistemes complet.
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem;">
+                        <div class="section-header"><i data-lucide="book-open"></i> Formació Acadèmica</div>
+                        <p><strong>Cicle Formatiu de Grau Mitjà en SMX</strong><br>
+                        <em>Institut Tecnològic de Barcelona | 2024 - Present</em><br>
+                        Actualment cursant el segon any. Formació centrada en la instal·lació i configuració de sistemes operatius, muntatge i manteniment d'equips, i serveis de xarxa bàsics.</p>
+                    </div>
+
+                    <div>
+                        <div class="section-header"><i data-lucide="cpu"></i> Competències Tècniques</div>
+                        <div class="cv-tags">
+                            <span class="tag">Muntatge de PC Avançat</span>
+                            <span class="tag">Diagnòstic de Hardware</span>
+                            <span class="tag">Windows 10/11 Pro</span>
+                            <span class="tag">Linux (Ubuntu/Debian)</span>
+                            <span class="tag">Xarxes LAN/WLAN</span>
+                            <span class="tag">Ofimàtica (Office 365)</span>
+                            <span class="tag">Clonació (Clonezilla)</span>
+                            <span class="tag">Seguretat Bàsica</span>
+                            <span class="tag">Atenció a l'Usuari</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bloc-a" class="content-section">
+            <div class="detailed-card">
+                <div class="section-header"><i data-lucide="briefcase"></i> BLOC A: Anàlisi del Perfil</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Tècnic d’instal·lació i reparació d’equips informàtics</h2>
+                
+                <div class="intro-text-box">
+                    <p>Dins de les múltiples sortides professionals que ofereix el títol d'SMX, he seleccionat el perfil de <strong>Tècnic de Hardware i Reparació</strong>. Aquesta decisió es fonamenta en la meva habilitat manual i la satisfacció personal que trobo en el procés de diagnòstic i resolució de problemes físics. A diferència de la gestió purament administrativa o de xarxes, aquest perfil permet un contacte directe amb la tecnologia tangible, sent una peça clau per a la continuïtat de negoci en qualsevol empresa.</p>
+                </div>
+
+                <div class="info-grid-detailed">
+                    <div class="info-item">
+                        <i data-lucide="wrench" style="color: var(--primary); margin-bottom: 10px;" size="32"></i>
+                        <h3>Tasques Principals</h3>
+                        <ul>
+                            <li><strong>Muntatge i Desmuntatge:</strong> Manipulació precisa de components (CPU, GPU, RAM), gestió del cablejat intern i instal·lació de sistemes de refrigeració.</li>
+                            <li><strong>Diagnòstic d'Avaries:</strong> Ús d'eines de test (multímetres, software de diagnòstic) per identificar fallades en placa base o fonts d'alimentació.</li>
+                            <li><strong>Manteniment Preventiu:</strong> Neteja física d'equips, canvi de pasta tèrmica i verificació de ventiladors per evitar sobreescalfaments.</li>
+                            <li><strong>Instal·lació de Software:</strong> Desplegament de sistemes operatius nets, instal·lació de drivers específics i configuració inicial.</li>
+                        </ul>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="hard-drive" style="color: var(--primary); margin-bottom: 10px;" size="32"></i>
+                        <h3>Coneixements Necessaris</h3>
+                        <ul>
+                            <li><strong>Arquitectura de Computadors:</strong> Coneixement profund de sockets, chipsets, tipus de memòria (DDR4/DDR5) i busos d'expansió (PCIe).</li>
+                            <li><strong>Sistemes de Fitxers:</strong> Gestió de particions GPT/MBR i sistemes de fitxers NTFS, FAT32 i ext4.</li>
+                            <li><strong>BIOS / UEFI:</strong> Configuració avançada de l'arrencada, perfils XMP per a memòries i actualització de firmware (flashing).</li>
+                            <li><strong>Eines de Recuperació:</strong> Domini de solucions com Hiren’s Boot, Rufus i eines de recuperació de dades.</li>
+                        </ul>
+                    </div>
+                    <div class="info-item">
+                        <i data-lucide="smile" style="color: var(--primary); margin-bottom: 10px;" size="32"></i>
+                        <h3>Habilitats Transversals</h3>
+                        <ul>
+                            <li><strong>Pensament Analític:</strong> Capacitat per deduir la causa d'un problema a partir dels símptomes (bips, pantalles blaves, etc.).</li>
+                            <li><strong>Paciència i Meticulositat:</strong> El treball amb hardware requereix precisió; un error petit pot malmetre un component car.</li>
+                            <li><strong>Comunicació Tècnica:</strong> Habilitat per traduir el llenguatge tècnic a un llenguatge entenedor per al client final o l'usuari.</li>
+                            <li><strong>Gestió de l'estrès:</strong> Capacitat de treballar sota pressió quan un equip crític està aturat.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bloc-b" class="content-section">
+            <div class="detailed-card">
+                <div class="section-header"><i data-lucide="trending-up"></i> BLOC B: Estudi del Mercat</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Ofertes i Requisits Actuals</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-muted);">
+                    A continuació es presenta un recull de 5 ofertes reals trobades en portals com InfoJobs i LinkedIn durant la darrera setmana. Aquestes ofertes han estat seleccionades perquè s'ajusten al perfil de sortida d'un estudiant de grau mitjà (Junior / Pràctiques).
+                </p>
+
+                <div class="market-analysis">
+                    <div class="job-card-premium">
+                        <i data-lucide="monitor" size="36" color="#64748b"></i>
+                        <div>
+                            <h3>Tècnic de Suport Helpdesk (Nivell 1)</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
+                                <strong>Ubicació:</strong> Barcelona Centre | <strong>Empresa:</strong> Consultora IT Multinacional
+                            </p>
+                            <p style="font-size: 0.9rem;">
+                                Es busca un tècnic per a la resolució d'incidències via telefònica i remota. Les tasques inclouen la gestió d'usuaris a l'Active Directory, configuració de correu Outlook i resolució de problemes d'impressió. Es valora molt l'actitud de servei.
+                            </p>
+                        </div>
+                        <span class="tag-status">Ideal Primer Feina</span>
+                    </div>
+
+                    <div class="job-card-premium">
+                        <i data-lucide="smartphone" size="36" color="#64748b"></i>
+                        <div>
+                            <h3>Tècnic de Reparació de Dispositius Mòbils i PC</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
+                                <strong>Ubicació:</strong> Reus (Tarragona) | <strong>Empresa:</strong> Servei Tècnic Oficial
+                            </p>
+                            <p style="font-size: 0.9rem;">
+                                Botiga de reparació necessita personal amb habilitat manual per canviar pantalles, bateries i connectors de càrrega tant de telèfons com de portàtils. Es requereix experiència prèvia demostrable o molta traça en el desmuntatge de dispositius compactes.
+                            </p>
+                        </div>
+                        <span class="tag-status">Perfil Hardware</span>
+                    </div>
+
+                    <div class="job-card-premium">
+                        <i data-lucide="server" size="36" color="#64748b"></i>
+                        <div>
+                            <h3>Auxiliar de Muntatge d'Equips (Gaming & Workstation)</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
+                                <strong>Ubicació:</strong> Girona | <strong>Empresa:</strong> Botiga Online Especialitzada
+                            </p>
+                            <p style="font-size: 0.9rem;">
+                                Muntatge d'ordinadors a mida segons comanda del client. Cal tenir coneixements sobre compatibilitat de components, refrigeració líquida custom i realització de tests d'estrès (benchmarking) abans de l'enviament.
+                            </p>
+                        </div>
+                        <span class="tag-status">Molt Tècnic</span>
+                    </div>
+
+                    <div class="job-card-premium">
+                        <i data-lucide="truck" size="36" color="#64748b"></i>
+                        <div>
+                            <h3>Tècnic de Camp (Suport Itinerant)</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
+                                <strong>Ubicació:</strong> Àrea Metropolitana BCN | <strong>Empresa:</strong> Serveis Managed IT
+                            </p>
+                            <p style="font-size: 0.9rem;">
+                                El candidat es desplaçarà a les oficines dels clients per resoldre problemes físics: canvi de routers, revisió de cablejat estructurat, instal·lació de nous llocs de treball i manteniment de servidors físics bàsics.
+                            </p>
+                        </div>
+                        <span class="tag-status">Carnet B Obligatori</span>
+                    </div>
+
+                    <div class="job-card-premium">
+                        <i data-lucide="refresh-cw" size="36" color="#64748b"></i>
+                        <div>
+                            <h3>Tècnic de Reacondicionament (Refurbished)</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
+                                <strong>Ubicació:</strong> L'Hospitalet | <strong>Empresa:</strong> Centre Logístic
+                            </p>
+                            <p style="font-size: 0.9rem;">
+                                Preparació d'equips procedents de rènting per a la seva segona vida. Inclou l'esborrat certificat de dades (Blancco), neteja interna/externa, auditoria estètica i re-empaquetat del producte.
+                            </p>
+                        </div>
+                        <span class="tag-status">Sector en alça</span>
+                    </div>
+                </div>
+
+                <div class="summary-dashboard">
+                    <div>
+                        <h3><i data-lucide="check-circle" size="18"></i> Requisits Comuns Detectats</h3>
+                        <ul>
+                            <li>• Títol de CFGM SMX finalitzat o cursant l'últim any.</li>
+                            <li>• Domini fluid de l'entorn Windows (Instal·lació i Troubleshooting).</li>
+                            <li>• Coneixements bàsics de xarxes (IP, DNS, DHCP).</li>
+                            <li>• Capacitat de treballar en equip i documentar les incidències (Ticketing).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3><i data-lucide="star" size="18"></i> Competències Valorades (Plus)</h3>
+                        <ul>
+                            <li>• Nivell d'Anglès tècnic suficient per llegir documentació.</li>
+                            <li>• Carnet de conduir B (imprescindible per a feines de camp).</li>
+                            <li>• Experiència prèvia en atenció al client (encara que no sigui IT).</li>
+                            <li>• Interès demostrable per la tecnologia (projectes propis, labs a casa).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bloc-c" class="content-section">
+            <div class="detailed-card">
+                <div class="section-header"><i data-lucide="map"></i> BLOC C: Full de Ruta Acadèmic</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Itinerari Formatiu i Futur Professional</h2>
+                
+                <div class="intro-text-box">
+                    <p>La formació en el sector tecnològic no acaba amb l'obtenció d'un títol; és un camí continu d'aprenentatge. A continuació, detallo l'itinerari que he seguit i el que tinc planificat per assolir les meves metes professionals. Aquest pla inclou des de la base obligatòria fins a l'especialització superior i les certificacions industrials que aporten valor afegit al currículum.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">ESO</div>
+                        <div class="timeline-content">
+                            <span class="date">Base Acadèmica (Finalitzat)</span>
+                            <h3>Educació Secundària Obligatòria</h3>
+                            <p style="margin-bottom: 10px;">
+                                Aquesta etapa va ser fonamental per adquirir les competències bàsiques transversals. Vaig posar especial èmfasi en les assignatures de:
+                            </p>
+                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                                <li><strong>Tecnologia:</strong> Primers contactes amb circuits elèctrics i lògica.</li>
+                                <li><strong>Anglès:</strong> Base gramatical necessària per al vocabulari tècnic.</li>
+                                <li><strong>Matemàtiques:</strong> Desenvolupament del pensament lògic i resolució de problemes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon" style="background: var(--primary); color: white;"><i data-lucide="loader"></i></div>
+                        <div class="timeline-content" style="border-left: 5px solid var(--primary);">
+                            <span class="date">Etapa Actual (2024 - 2025)</span>
+                            <h3>CFGM Sistemes Microinformàtics i Xarxes (SMX)</h3>
+                            <p style="margin-bottom: 10px;">
+                                És la meva formació troncal actual. Aquest cicle m'està proporcionant els coneixements oficials necessaris per accedir al mercat laboral. Els mòduls més rellevants per al meu perfil són:
+                            </p>
+                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                                <li><strong>M01 - Muntatge i manteniment d'equips:</strong> L'assignatura clau per al perfil de hardware.</li>
+                                <li><strong>M02 - Sistemes Operatius Monolloc:</strong> Administració avançada de Windows i Linux.</li>
+                                <li><strong>M08 - Aplicacions Web:</strong> Nocions bàsiques de HTML/CSS i servidors.</li>
+                                <li><strong>M12 - FCT (Formació en Centres de Treball):</strong> Serà el meu primer contacte real amb l'empresa (350h+).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="award"></i></div>
+                        <div class="timeline-content">
+                            <span class="date">Objectiu a Curt Termini (1 any)</span>
+                            <h3>Certificacions Industrials (Valor Afegit)</h3>
+                            <p>
+                                Per diferenciar-me d'altres candidats amb la mateixa titulació, planejo preparar-me pel meu compte per obtenir certificacions reconegudes internacionalment:
+                            </p>
+                            <div style="background: #e0f2fe; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                <strong style="color: #0369a1;">CompTIA A+</strong>
+                                <p style="font-size: 0.85rem; margin-top: 5px;">És l'estàndard de la indústria per als tècnics de suport. Valida coneixements en dispositius mòbils, tecnologia de xarxes, hardware, virtualització i resolució de problemes de xarxa.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
+                        <div class="timeline-content">
+                            <span class="date">Projecció de Futur (Llarg Termini)</span>
+                            <h3>Grau Superior (ASIX / DAM)</h3>
+                            <p style="margin-bottom: 10px;">
+                                Un cop consolidada la base tècnica, el següent pas lògic és accedir al Grau Superior. Tinc intenció de cursar:
+                            </p>
+                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                                <li><strong>CFGS Administració de Sistemes (ASIX):</strong> Per fer el salt del "manteniment" a l'"administració" d'infraestructures complexes, servidors i núvol (Cloud Computing).</li>
+                                <li><strong>Especialització en Ciberseguretat:</strong> Un cop acabat el superior, m'agradaria fer el curs d'especialització (Màster FP) en seguretat informàtica.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>© 2024 Sergio Arguiñena Garcia</strong></p>
+        <p style="margin-top: 8px; opacity: 0.7;">Projecte d'Orientació Professional (IPO) • CFGM Sistemes Microinformàtics i Xarxes</p>
+        <p style="margin-top: 4px; font-size: 0.75rem;">Desenvolupat com a Single Page Application (SPA) per a la presentació acadèmica.</p>
+    </footer>
+
+    <script>
+        // Funció principal de navegació SPA (Single Page Application)
+        function showSection(sectionId) {
+            // 1. Amagar totes les seccions actives
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 2. Desactivar l'estat visual de tots els botons del menú
+            const buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // 3. Activar la secció escollida amb una animació CSS
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            // 4. Marcar el botó corresponent com a actiu
+            const activeButton = document.getElementById('btn-' + sectionId);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+
+            // 5. Fer scroll suau cap a l'inici de la pàgina
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Inicialitzar les icones de Lucide un cop carregada la pàgina
+        lucide.createIcons();
+    </script>
+</body>
+</html>
