@@ -9,40 +9,38 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* --- VARIABLES DE DISSENY (ESTIL COMPACTE) --- */
+        /* --- VARIABLES (ESTIL COMPACTE) --- */
         :root {
-            --primary: #2563eb;       /* Blau principal */
-            --primary-dark: #1e40af;  /* Blau fosc per hovers */
-            --primary-light: #dbeafe; /* Fons suaus */
-            --accent: #0ea5e9;        /* Detalls brillants */
-            --background: #f8fafc;    /* Fons de la pàgina */
-            --surface: #ffffff;       /* Fons de les targetes */
-            --text-main: #0f172a;     /* Text principal */
-            --text-muted: #475569;    /* Text secundari (més fosc que abans per llegibilitat) */
-            --border: #cbd5e1;        /* Voravius subtils */
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #dbeafe;
+            --accent: #0ea5e9;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
             
-            /* Mides reduïdes per evitar scroll excessiu */
             --radius-lg: 16px;
             --radius-md: 10px;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        /* --- RESET I BASE --- */
+        /* --- BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--background);
             color: var(--text-main);
-            /* Mida de lletra continguda per encabir molt text */
             font-size: 0.92rem; 
-            line-height: 1.6; /* Interlineat còmode per llegir paràgrafs llargs */
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* --- NAVEGACIÓ SUPERIOR (STICKY) --- */
+        /* --- NAVEGACIÓ --- */
         nav {
             position: sticky;
             top: 0;
@@ -94,14 +92,13 @@
             transition: all 0.2s ease;
         }
 
-        .nav-links button:hover { color: var(--primary); }
         .nav-links button.active { 
             background: var(--surface); 
             color: var(--primary); 
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
         }
 
-        /* --- CONTENIDOR PRINCIPAL --- */
+        /* --- MAIN --- */
         main { 
             flex: 1; 
             max-width: 1150px; 
@@ -121,12 +118,8 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* --- ESTILS PÀGINA D'INICI (CURRÍCULUM) --- */
-        .cv-container { 
-            display: grid; 
-            grid-template-columns: 300px 1fr; 
-            gap: 2rem; 
-        }
+        /* --- INICI / CV --- */
+        .cv-container { display: grid; grid-template-columns: 300px 1fr; gap: 2rem; }
         
         .cv-sidebar { 
             background: var(--surface); 
@@ -206,7 +199,7 @@
             color: var(--text-main);
         }
 
-        /* --- ESTILS GENERALS PER ALS BLOCS A, B i C --- */
+        /* --- COMPONENTS GENERALS BLOCS --- */
         .detailed-card { 
             background: var(--surface); 
             padding: 3rem; 
@@ -215,7 +208,6 @@
             box-shadow: var(--shadow);
         }
         
-        /* Intro Box amb molt text */
         .intro-text-box { 
             font-size: 1rem; 
             background: linear-gradient(to right, #f8fafc, #ffffff); 
@@ -226,7 +218,6 @@
             color: var(--text-main);
         }
 
-        /* Graella d'informació detallada */
         .info-grid-detailed { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -249,7 +240,7 @@
         .info-item ul { padding-left: 1.2rem; margin-top: 0.5rem; }
         .info-item li { margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-muted); }
 
-        /* --- BLOC B: MERCAT LABORAL --- */
+        /* --- BLOC B ESTILS --- */
         .market-analysis { margin-top: 2rem; }
         .job-card-premium { 
             display: grid; 
@@ -288,67 +279,37 @@
         .summary-dashboard h3 { color: var(--primary-light); margin-bottom: 1.5rem; font-size: 1.1rem; }
         .summary-dashboard li { margin-bottom: 10px; font-size: 0.9rem; color: #cbd5e1; }
 
-        /* --- BLOC C: ITINERARI FORMATIU (Timeline Vertical) --- */
+        /* --- BLOC C: TIMELINE --- */
         .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 2rem 0; }
         .timeline::before { 
-            content: ''; 
-            position: absolute; 
-            left: 29px; 
-            top: 0; 
-            bottom: 0; 
-            width: 3px; 
-            background: #e2e8f0; 
+            content: ''; position: absolute; left: 29px; top: 0; bottom: 0; width: 3px; background: #e2e8f0; 
         }
         
         .timeline-item { position: relative; padding-left: 80px; margin-bottom: 3rem; }
         .timeline-item:last-child { margin-bottom: 0; }
         
         .timeline-icon { 
-            position: absolute; 
-            left: 0; 
-            top: 0; 
-            width: 60px; 
-            height: 60px; 
-            background: var(--surface); 
-            border: 3px solid var(--primary); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: var(--primary); 
-            z-index: 2; 
-            font-weight: bold;
+            position: absolute; left: 0; top: 0; width: 60px; height: 60px; 
+            background: var(--surface); border: 3px solid var(--primary); border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            color: var(--primary); z-index: 2; font-weight: bold;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .timeline-content { 
-            background: #f8fafc; 
-            padding: 2rem; 
-            border-radius: var(--radius-md); 
-            border: 1px solid var(--border); 
-            transition: 0.3s;
+            background: #f8fafc; padding: 2rem; border-radius: var(--radius-md); 
+            border: 1px solid var(--border); transition: 0.3s;
         }
         .timeline-content:hover { background: #ffffff; border-color: var(--primary); }
-
         .timeline-content h3 { font-size: 1.2rem; margin-bottom: 8px; color: var(--text-main); font-weight: 700; }
         .timeline-content .date { 
-            font-size: 0.8rem; 
-            color: var(--primary); 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin-bottom: 12px; 
-            display: block; 
+            font-size: 0.8rem; color: var(--primary); font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; 
         }
 
         footer { 
-            padding: 2rem; 
-            background: var(--surface);
-            border-top: 1px solid var(--border); 
-            text-align: center; 
-            font-size: 0.85rem; 
-            color: var(--text-muted); 
-            margin-top: auto;
+            padding: 2rem; background: var(--surface); border-top: 1px solid var(--border); 
+            text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: auto;
         }
 
         @media (max-width: 850px) { 
@@ -388,10 +349,22 @@
                     <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border);">
                     
                     <div class="contact-mini">
-                        <p><i data-lucide="mail" size="14"></i> s.arguinena@exemple.com</p>
-                        <p><i data-lucide="phone" size="14"></i> +34 600 000 000</p>
-                        <p><i data-lucide="map-pin" size="14"></i> Barcelona, Espanya</p>
+                        <p><i data-lucide="mail" size="14"></i> sergio.arguinena@iaballester.cat</p>
+                        <p><i data-lucide="phone" size="14"></i> +34 640 054 235</p>
+                        <p><i data-lucide="map-pin" size="14"></i> Cambrils, Tarragona, Espanya</p>
                         <p><i data-lucide="linkedin" size="14"></i> linkedin.com/in/sergio</p>
+                    </div>
+
+                    <div style="margin-top: 2rem; text-align: left;">
+                        <div style="font-weight: 700; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 10px; display:flex; align-items:center; gap:8px;">
+                            <i data-lucide="languages" size="16"></i> Idiomes
+                        </div>
+                        <ul style="list-style: none; font-size: 0.9rem; padding:0;">
+                            <li style="margin-bottom: 8px;"><strong>Català:</strong> Nadiu</li>
+                            <li style="margin-bottom: 8px;"><strong>Castellà:</strong> Nadiu</li>
+                            <li style="margin-bottom: 8px;"><strong>Anglès:</strong> Fluid (B2/C1)</li>
+                            <li><strong>Francès:</strong> Bàsic</li>
+                        </ul>
                     </div>
                 </aside>
 
@@ -399,31 +372,44 @@
                     <div style="margin-bottom: 2.5rem;">
                         <div class="section-header"><i data-lucide="user"></i> Presentació Professional</div>
                         <p style="text-align: justify;">
-                            Benvinguts al meu portafoli professional digital. Sóc actualment un estudiant apassionat del Cicle Formatiu de Grau Mitjà en <strong>Sistemes Microinformàtics i Xarxes (SMX)</strong>. Des de ben petit he tingut un interès innat per entendre com funcionen les màquines per dins, cosa que m'ha portat a especialitzar-me en el maquinari (hardware) i el manteniment d'infraestructures.
+                            Benvinguts al meu portafoli. Sóc actualment un estudiant del Cicle Formatiu de Grau Mitjà en <strong>Sistemes Microinformàtics i Xarxes (SMX)</strong>. Tinc un perfil polivalent: combino la meva passió pel hardware i la tecnologia amb una forta ètica de treball adquirida en altres sectors.
                             <br><br>
-                            Em considero una persona <strong>metòdica, organitzada i amb una gran capacitat d'autodidactisme</strong>. En un sector tan canviant com la informàtica, crec que la curiositat és el motor principal del creixement. El meu objectiu a curt termini és consolidar els meus coneixements tècnics mitjançant les pràctiques en empresa (FCT) i, posteriorment, continuar la meva formació superior per esdevenir un Administrador de Sistemes complet.
+                            Em caracteritzo per ser una persona resolutiva, amb facilitat per als idiomes i amb capacitat d'adaptació a entorns dinàmics. El meu objectiu és aplicar les meves habilitats tècniques i personals en un entorn professional IT, oferint un servei de qualitat i eficient.
                         </p>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem;">
+                        <div class="section-header"><i data-lucide="briefcase"></i> Experiència Laboral</div>
+                        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+                            <p style="margin-bottom: 8px;"><strong>Cambrer / Hostaleria</strong> | <em>4 Estius + Temporades extra</em></p>
+                            <p style="font-size: 0.9rem; text-align: justify; color: var(--text-muted);">
+                                Tot i que la meva formació acadèmica és tecnològica, he treballat durant quatre estius consecutius i reforços puntuals com a cambrer. Aquesta experiència m'ha permès desenvolupar competències transversals essencials per a qualsevol lloc de treball:
+                            </p>
+                            <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                                <li><strong>Gestió de l'estrès:</strong> Capacitat de mantenir la calma i l'eficiència en moments de màxima càrrega de feina.</li>
+                                <li><strong>Atenció al client:</strong> Tracte directe, educat i resolució de conflictes o queixes de manera assertiva.</li>
+                                <li><strong>Treball en equip:</strong> Coordinació fluida amb companys per assolir objectius comuns diaris.</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div style="margin-bottom: 2.5rem;">
                         <div class="section-header"><i data-lucide="book-open"></i> Formació Acadèmica</div>
                         <p><strong>Cicle Formatiu de Grau Mitjà en SMX</strong><br>
-                        <em>Institut Tecnològic de Barcelona | 2024 - Present</em><br>
-                        Actualment cursant el segon any. Formació centrada en la instal·lació i configuració de sistemes operatius, muntatge i manteniment d'equips, i serveis de xarxa bàsics.</p>
+                        <em>Institut Tecnològic | 2024 - Present</em><br>
+                        Formació en instal·lació i configuració de sistemes operatius, muntatge i manteniment d'equips, i serveis de xarxa.</p>
                     </div>
 
                     <div>
                         <div class="section-header"><i data-lucide="cpu"></i> Competències Tècniques</div>
                         <div class="cv-tags">
-                            <span class="tag">Muntatge de PC Avançat</span>
-                            <span class="tag">Diagnòstic de Hardware</span>
+                            <span class="tag">Muntatge de PC</span>
+                            <span class="tag">Diagnòstic Hardware</span>
                             <span class="tag">Windows 10/11 Pro</span>
-                            <span class="tag">Linux (Ubuntu/Debian)</span>
-                            <span class="tag">Xarxes LAN/WLAN</span>
-                            <span class="tag">Ofimàtica (Office 365)</span>
-                            <span class="tag">Clonació (Clonezilla)</span>
-                            <span class="tag">Seguretat Bàsica</span>
+                            <span class="tag">Linux (Ubuntu)</span>
+                            <span class="tag">Anglès Tècnic</span>
                             <span class="tag">Atenció a l'Usuari</span>
+                            <span class="tag">Resolució de problemes</span>
                         </div>
                     </div>
                 </div>
@@ -433,10 +419,10 @@
         <section id="bloc-a" class="content-section">
             <div class="detailed-card">
                 <div class="section-header"><i data-lucide="briefcase"></i> BLOC A: Anàlisi del Perfil</div>
-                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Tècnic d’instal·lació i reparació d’equips informàtics</h2>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Tècnic de Reparació i Hardware</h2>
                 
                 <div class="intro-text-box">
-                    <p>Dins de les múltiples sortides professionals que ofereix el títol d'SMX, he seleccionat el perfil de <strong>Tècnic de Hardware i Reparació</strong>. Aquesta decisió es fonamenta en la meva habilitat manual i la satisfacció personal que trobo en el procés de diagnòstic i resolució de problemes físics. A diferència de la gestió purament administrativa o de xarxes, aquest perfil permet un contacte directe amb la tecnologia tangible, sent una peça clau per a la continuïtat de negoci en qualsevol empresa.</p>
+                    <p>He seleccionat el perfil de <strong>Tècnic de Hardware</strong> per la meva habilitat manual i la satisfacció personal que trobo en el diagnòstic i resolució de problemes físics. Aquest perfil permet un contacte directe amb la tecnologia tangible, sent clau per a la continuïtat de negoci.</p>
                 </div>
 
                 <div class="info-grid-detailed">
@@ -444,30 +430,30 @@
                         <i data-lucide="wrench" style="color: var(--primary); margin-bottom: 10px;" size="32"></i>
                         <h3>Tasques Principals</h3>
                         <ul>
-                            <li><strong>Muntatge i Desmuntatge:</strong> Manipulació precisa de components (CPU, GPU, RAM), gestió del cablejat intern i instal·lació de sistemes de refrigeració.</li>
-                            <li><strong>Diagnòstic d'Avaries:</strong> Ús d'eines de test (multímetres, software de diagnòstic) per identificar fallades en placa base o fonts d'alimentació.</li>
-                            <li><strong>Manteniment Preventiu:</strong> Neteja física d'equips, canvi de pasta tèrmica i verificació de ventiladors per evitar sobreescalfaments.</li>
-                            <li><strong>Instal·lació de Software:</strong> Desplegament de sistemes operatius nets, instal·lació de drivers específics i configuració inicial.</li>
+                            <li><strong>Muntatge i Desmuntatge:</strong> Manipulació precisa de components (CPU, GPU, RAM), gestió del cablejat i refrigeració.</li>
+                            <li><strong>Diagnòstic d'Avaries:</strong> Ús de multímetres i software de diagnòstic per identificar fallades en placa base.</li>
+                            <li><strong>Manteniment Preventiu:</strong> Neteja física, canvi de pasta tèrmica i verificació de ventiladors.</li>
+                            <li><strong>Software Base:</strong> Desplegament de sistemes operatius nets i configuració de drivers.</li>
                         </ul>
                     </div>
                     <div class="info-item">
                         <i data-lucide="hard-drive" style="color: var(--primary); margin-bottom: 10px;" size="32"></i>
-                        <h3>Coneixements Necessaris</h3>
+                        <h3>Coneixements</h3>
                         <ul>
-                            <li><strong>Arquitectura de Computadors:</strong> Coneixement profund de sockets, chipsets, tipus de memòria (DDR4/DDR5) i busos d'expansió (PCIe).</li>
-                            <li><strong>Sistemes de Fitxers:</strong> Gestió de particions GPT/MBR i sistemes de fitxers NTFS, FAT32 i ext4.</li>
-                            <li><strong>BIOS / UEFI:</strong> Configuració avançada de l'arrencada, perfils XMP per a memòries i actualització de firmware (flashing).</li>
-                            <li><strong>Eines de Recuperació:</strong> Domini de solucions com Hiren’s Boot, Rufus i eines de recuperació de dades.</li>
+                            <li><strong>Arquitectura:</strong> Profunditat en sockets, chipsets, tipus de memòria (DDR4/DDR5) i busos (PCIe).</li>
+                            <li><strong>Sistemes de Fitxers:</strong> Gestió de particions GPT/MBR i formats NTFS, FAT32 i ext4.</li>
+                            <li><strong>BIOS / UEFI:</strong> Configuració d'arrencada, perfils XMP i actualització de firmware.</li>
+                            <li><strong>Recuperació:</strong> Ús de Hiren’s Boot, Rufus i eines de recuperació de dades.</li>
                         </ul>
                     </div>
                     <div class="info-item">
                         <i data-lucide="smile" style="color: var(--primary); margin-bottom: 10px;" size="32"></i>
                         <h3>Habilitats Transversals</h3>
                         <ul>
-                            <li><strong>Pensament Analític:</strong> Capacitat per deduir la causa d'un problema a partir dels símptomes (bips, pantalles blaves, etc.).</li>
-                            <li><strong>Paciència i Meticulositat:</strong> El treball amb hardware requereix precisió; un error petit pot malmetre un component car.</li>
-                            <li><strong>Comunicació Tècnica:</strong> Habilitat per traduir el llenguatge tècnic a un llenguatge entenedor per al client final o l'usuari.</li>
-                            <li><strong>Gestió de l'estrès:</strong> Capacitat de treballar sota pressió quan un equip crític està aturat.</li>
+                            <li><strong>Pensament Analític:</strong> Capacitat per deduir causes a partir de símptomes.</li>
+                            <li><strong>Meticulositat:</strong> Precisió en la manipulació de components sensibles.</li>
+                            <li><strong>Comunicació:</strong> Traducció de llenguatge tècnic per al client final.</li>
+                            <li><strong>Gestió de l'estrès:</strong> Treball eficient sota pressió en incidències crítiques.</li>
                         </ul>
                     </div>
                 </div>
@@ -478,99 +464,86 @@
             <div class="detailed-card">
                 <div class="section-header"><i data-lucide="trending-up"></i> BLOC B: Estudi del Mercat</div>
                 <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Ofertes i Requisits Actuals</h2>
-                <p style="margin-bottom: 2rem; color: var(--text-muted);">
-                    A continuació es presenta un recull de 5 ofertes reals trobades en portals com InfoJobs i LinkedIn durant la darrera setmana. Aquestes ofertes han estat seleccionades perquè s'ajusten al perfil de sortida d'un estudiant de grau mitjà (Junior / Pràctiques).
-                </p>
-
+                
                 <div class="market-analysis">
                     <div class="job-card-premium">
                         <i data-lucide="monitor" size="36" color="#64748b"></i>
                         <div>
                             <h3>Tècnic de Suport Helpdesk (Nivell 1)</h3>
                             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                                <strong>Ubicació:</strong> Barcelona Centre | <strong>Empresa:</strong> Consultora IT Multinacional
+                                <strong>Ubicació:</strong> Barcelona | <strong>Empresa:</strong> Consultora IT
                             </p>
-                            <p style="font-size: 0.9rem;">
-                                Es busca un tècnic per a la resolució d'incidències via telefònica i remota. Les tasques inclouen la gestió d'usuaris a l'Active Directory, configuració de correu Outlook i resolució de problemes d'impressió. Es valora molt l'actitud de servei.
-                            </p>
+                            <p style="font-size: 0.9rem;">Resolució d'incidències via remota. Gestió d'usuaris AD i configuració de correu. Es valora l'idioma anglès.</p>
                         </div>
-                        <span class="tag-status">Ideal Primer Feina</span>
+                        <span class="tag-status">Ideal Junior</span>
                     </div>
 
                     <div class="job-card-premium">
                         <i data-lucide="smartphone" size="36" color="#64748b"></i>
                         <div>
-                            <h3>Tècnic de Reparació de Dispositius Mòbils i PC</h3>
+                            <h3>Tècnic de Reparació SAT</h3>
                             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                                <strong>Ubicació:</strong> Reus (Tarragona) | <strong>Empresa:</strong> Servei Tècnic Oficial
+                                <strong>Ubicació:</strong> Reus | <strong>Empresa:</strong> Servei Oficial
                             </p>
-                            <p style="font-size: 0.9rem;">
-                                Botiga de reparació necessita personal amb habilitat manual per canviar pantalles, bateries i connectors de càrrega tant de telèfons com de portàtils. Es requereix experiència prèvia demostrable o molta traça en el desmuntatge de dispositius compactes.
-                            </p>
+                            <p style="font-size: 0.9rem;">Canvi de pantalles, bateries i connectors en portàtils i mòbils. Es requereix habilitat manual i experiència.</p>
                         </div>
-                        <span class="tag-status">Perfil Hardware</span>
+                        <span class="tag-status">Hardware</span>
                     </div>
 
                     <div class="job-card-premium">
                         <i data-lucide="server" size="36" color="#64748b"></i>
                         <div>
-                            <h3>Auxiliar de Muntatge d'Equips (Gaming & Workstation)</h3>
+                            <h3>Auxiliar de Muntatge Gaming</h3>
                             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                                <strong>Ubicació:</strong> Girona | <strong>Empresa:</strong> Botiga Online Especialitzada
+                                <strong>Ubicació:</strong> Girona | <strong>Empresa:</strong> E-Commerce
                             </p>
-                            <p style="font-size: 0.9rem;">
-                                Muntatge d'ordinadors a mida segons comanda del client. Cal tenir coneixements sobre compatibilitat de components, refrigeració líquida custom i realització de tests d'estrès (benchmarking) abans de l'enviament.
-                            </p>
+                            <p style="font-size: 0.9rem;">Muntatge d'equips a mida, refrigeració líquida i benchmarking. Coneixement alt de components actuals.</p>
                         </div>
-                        <span class="tag-status">Molt Tècnic</span>
+                        <span class="tag-status">Tècnic</span>
                     </div>
 
                     <div class="job-card-premium">
                         <i data-lucide="truck" size="36" color="#64748b"></i>
                         <div>
-                            <h3>Tècnic de Camp (Suport Itinerant)</h3>
+                            <h3>Tècnic de Camp Itinerant</h3>
                             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                                <strong>Ubicació:</strong> Àrea Metropolitana BCN | <strong>Empresa:</strong> Serveis Managed IT
+                                <strong>Ubicació:</strong> Tarragona | <strong>Empresa:</strong> MSP
                             </p>
-                            <p style="font-size: 0.9rem;">
-                                El candidat es desplaçarà a les oficines dels clients per resoldre problemes físics: canvi de routers, revisió de cablejat estructurat, instal·lació de nous llocs de treball i manteniment de servidors físics bàsics.
-                            </p>
+                            <p style="font-size: 0.9rem;">Desplaçament a clients per manteniment físic de xarxes i equips. Imprescindible carnet de conduir.</p>
                         </div>
-                        <span class="tag-status">Carnet B Obligatori</span>
+                        <span class="tag-status">Carnet B</span>
                     </div>
 
                     <div class="job-card-premium">
                         <i data-lucide="refresh-cw" size="36" color="#64748b"></i>
                         <div>
-                            <h3>Tècnic de Reacondicionament (Refurbished)</h3>
+                            <h3>Tècnic Reacondicionament</h3>
                             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">
-                                <strong>Ubicació:</strong> L'Hospitalet | <strong>Empresa:</strong> Centre Logístic
+                                <strong>Ubicació:</strong> L'Hospitalet | <strong>Empresa:</strong> Logística
                             </p>
-                            <p style="font-size: 0.9rem;">
-                                Preparació d'equips procedents de rènting per a la seva segona vida. Inclou l'esborrat certificat de dades (Blancco), neteja interna/externa, auditoria estètica i re-empaquetat del producte.
-                            </p>
+                            <p style="font-size: 0.9rem;">Esborrat de dades, neteja i testeig d'equips de segona mà per a la seva revenda.</p>
                         </div>
-                        <span class="tag-status">Sector en alça</span>
+                        <span class="tag-status">Sostenible</span>
                     </div>
                 </div>
 
                 <div class="summary-dashboard">
                     <div>
-                        <h3><i data-lucide="check-circle" size="18"></i> Requisits Comuns Detectats</h3>
+                        <h3><i data-lucide="check-circle" size="18"></i> Requisits Comuns</h3>
                         <ul>
-                            <li>• Títol de CFGM SMX finalitzat o cursant l'últim any.</li>
-                            <li>• Domini fluid de l'entorn Windows (Instal·lació i Troubleshooting).</li>
-                            <li>• Coneixements bàsics de xarxes (IP, DNS, DHCP).</li>
-                            <li>• Capacitat de treballar en equip i documentar les incidències (Ticketing).</li>
+                            <li>• CFGM SMX finalitzat o darrer curs.</li>
+                            <li>• Domini de Windows y Linux bàsic.</li>
+                            <li>• Coneixements de hardware i xarxes.</li>
+                            <li>• Capacitat de documentar incidències.</li>
                         </ul>
                     </div>
                     <div>
-                        <h3><i data-lucide="star" size="18"></i> Competències Valorades (Plus)</h3>
+                        <h3><i data-lucide="star" size="18"></i> Competències Plus</h3>
                         <ul>
-                            <li>• Nivell d'Anglès tècnic suficient per llegir documentació.</li>
-                            <li>• Carnet de conduir B (imprescindible per a feines de camp).</li>
-                            <li>• Experiència prèvia en atenció al client (encara que no sigui IT).</li>
-                            <li>• Interès demostrable per la tecnologia (projectes propis, labs a casa).</li>
+                            <li>• Nivell d'Anglès fluid (B2+).</li>
+                            <li>• Carnet de conduir B.</li>
+                            <li>• Experiència en atenció al client.</li>
+                            <li>• Proactivitat i ganes d'aprendre.</li>
                         </ul>
                     </div>
                 </div>
@@ -579,43 +552,33 @@
 
         <section id="bloc-c" class="content-section">
             <div class="detailed-card">
-                <div class="section-header"><i data-lucide="map"></i> BLOC C: Full de Ruta Acadèmic</div>
-                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Itinerari Formatiu i Futur Professional</h2>
+                <div class="section-header"><i data-lucide="map"></i> BLOC C: Full de Ruta</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Itinerari Formatiu</h2>
                 
                 <div class="intro-text-box">
-                    <p>La formació en el sector tecnològic no acaba amb l'obtenció d'un títol; és un camí continu d'aprenentatge. A continuació, detallo l'itinerari que he seguit i el que tinc planificat per assolir les meves metes professionals. Aquest pla inclou des de la base obligatòria fins a l'especialització superior i les certificacions industrials que aporten valor afegit al currículum.</p>
+                    <p>La formació tecnològica és contínua. Aquest és el meu pla per passar de la formació bàsica a l'especialització professional, incloent certificacions i estudis superiors.</p>
                 </div>
 
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-icon">ESO</div>
                         <div class="timeline-content">
-                            <span class="date">Base Acadèmica (Finalitzat)</span>
+                            <span class="date">Base Acadèmica</span>
                             <h3>Educació Secundària Obligatòria</h3>
-                            <p style="margin-bottom: 10px;">
-                                Aquesta etapa va ser fonamental per adquirir les competències bàsiques transversals. Vaig posar especial èmfasi en les assignatures de:
-                            </p>
-                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
-                                <li><strong>Tecnologia:</strong> Primers contactes amb circuits elèctrics i lògica.</li>
-                                <li><strong>Anglès:</strong> Base gramatical necessària per al vocabulari tècnic.</li>
-                                <li><strong>Matemàtiques:</strong> Desenvolupament del pensament lògic i resolució de problemes.</li>
-                            </ul>
+                            <p>Adquisició de competències bàsiques, matemàtiques, tecnologia i base d'idiomes (Anglès/Francès).</p>
                         </div>
                     </div>
 
                     <div class="timeline-item">
                         <div class="timeline-icon" style="background: var(--primary); color: white;"><i data-lucide="loader"></i></div>
                         <div class="timeline-content" style="border-left: 5px solid var(--primary);">
-                            <span class="date">Etapa Actual (2024 - 2025)</span>
-                            <h3>CFGM Sistemes Microinformàtics i Xarxes (SMX)</h3>
-                            <p style="margin-bottom: 10px;">
-                                És la meva formació troncal actual. Aquest cicle m'està proporcionant els coneixements oficials necessaris per accedir al mercat laboral. Els mòduls més rellevants per al meu perfil són:
-                            </p>
-                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
-                                <li><strong>M01 - Muntatge i manteniment d'equips:</strong> L'assignatura clau per al perfil de hardware.</li>
-                                <li><strong>M02 - Sistemes Operatius Monolloc:</strong> Administració avançada de Windows i Linux.</li>
-                                <li><strong>M08 - Aplicacions Web:</strong> Nocions bàsiques de HTML/CSS i servidors.</li>
-                                <li><strong>M12 - FCT (Formació en Centres de Treball):</strong> Serà el meu primer contacte real amb l'empresa (350h+).</li>
+                            <span class="date">Actualitat</span>
+                            <h3>CFGM Sistemes Microinformàtics i Xarxes</h3>
+                            <p>Formació troncal tècnica. Mòduls clau:</p>
+                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted); margin-top: 5px;">
+                                <li><strong>M01/M02:</strong> Muntatge i Sistemes Operatius.</li>
+                                <li><strong>M08:</strong> Aplicacions Web.</li>
+                                <li><strong>M12:</strong> Formació en Centres de Treball (Pràctiques).</li>
                             </ul>
                         </div>
                     </div>
@@ -623,14 +586,12 @@
                     <div class="timeline-item">
                         <div class="timeline-icon"><i data-lucide="award"></i></div>
                         <div class="timeline-content">
-                            <span class="date">Objectiu a Curt Termini (1 any)</span>
-                            <h3>Certificacions Industrials (Valor Afegit)</h3>
-                            <p>
-                                Per diferenciar-me d'altres candidats amb la mateixa titulació, planejo preparar-me pel meu compte per obtenir certificacions reconegudes internacionalment:
-                            </p>
-                            <div style="background: #e0f2fe; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                            <span class="date">Curt Termini</span>
+                            <h3>Certificacions Professionals</h3>
+                            <p>Per destacar al mercat, planejo obtenir:</p>
+                            <div style="background: #e0f2fe; padding: 10px; border-radius: 8px; margin-top: 10px;">
                                 <strong style="color: #0369a1;">CompTIA A+</strong>
-                                <p style="font-size: 0.85rem; margin-top: 5px;">És l'estàndard de la indústria per als tècnics de suport. Valida coneixements en dispositius mòbils, tecnologia de xarxes, hardware, virtualització i resolució de problemes de xarxa.</p>
+                                <p style="font-size: 0.85rem;">Validació internacional de competències en suport tècnic i hardware.</p>
                             </div>
                         </div>
                     </div>
@@ -638,15 +599,9 @@
                     <div class="timeline-item">
                         <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
                         <div class="timeline-content">
-                            <span class="date">Projecció de Futur (Llarg Termini)</span>
+                            <span class="date">Futur</span>
                             <h3>Grau Superior (ASIX / DAM)</h3>
-                            <p style="margin-bottom: 10px;">
-                                Un cop consolidada la base tècnica, el següent pas lògic és accedir al Grau Superior. Tinc intenció de cursar:
-                            </p>
-                            <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-muted);">
-                                <li><strong>CFGS Administració de Sistemes (ASIX):</strong> Per fer el salt del "manteniment" a l'"administració" d'infraestructures complexes, servidors i núvol (Cloud Computing).</li>
-                                <li><strong>Especialització en Ciberseguretat:</strong> Un cop acabat el superior, m'agradaria fer el curs d'especialització (Màster FP) en seguretat informàtica.</li>
-                            </ul>
+                            <p>El següent pas lògic és el CFGS en Administració de Sistemes (ASIX) per especialitzar-me en servidors, cloud i ciberseguretat.</p>
                         </div>
                     </div>
                 </div>
@@ -656,43 +611,23 @@
 
     <footer>
         <p><strong>© 2024 Sergio Arguiñena Garcia</strong></p>
-        <p style="margin-top: 8px; opacity: 0.7;">Projecte d'Orientació Professional (IPO) • CFGM Sistemes Microinformàtics i Xarxes</p>
-        <p style="margin-top: 4px; font-size: 0.75rem;">Desenvolupat com a Single Page Application (SPA) per a la presentació acadèmica.</p>
+        <p style="margin-top: 8px; opacity: 0.7;">Projecte d'Orientació Professional (IPO) • CFGM SMX</p>
     </footer>
 
     <script>
-        // Funció principal de navegació SPA (Single Page Application)
         function showSection(sectionId) {
-            // 1. Amagar totes les seccions actives
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // 2. Desactivar l'estat visual de tots els botons del menú
-            const buttons = document.querySelectorAll('.nav-links button');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // 3. Activar la secció escollida amb una animació CSS
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+            
             const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.add('active');
-            }
-
-            // 4. Marcar el botó corresponent com a actiu
+            if(activeSection) activeSection.classList.add('active');
+            
             const activeButton = document.getElementById('btn-' + sectionId);
-            if (activeButton) {
-                activeButton.classList.add('active');
-            }
-
-            // 5. Fer scroll suau cap a l'inici de la pàgina
+            if(activeButton) activeButton.classList.add('active');
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Inicialitzar les icones de Lucide un cop carregada la pàgina
         lucide.createIcons();
     </script>
 </body>
-</html>
+</html>     
